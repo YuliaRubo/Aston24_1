@@ -14,7 +14,8 @@ public class SimpleArrayImpl<T> implements Simple<T> {
         newArray.add("One");
         newArray.add("Two");
         newArray.add("Three");
-         String y = newArray.toString();
+        //Вывод коллекции после добавления элементов
+        String y = newArray.toString();
         System.out.println(y);
         //Удаляем элемент с индексом 1 и остальные смещатся
         newArray.delete(1);
