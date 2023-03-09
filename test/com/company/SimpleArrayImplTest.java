@@ -1,5 +1,7 @@
 package com.company;
 
+import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 public class SimpleArrayImplTest {
@@ -14,14 +16,10 @@ public class SimpleArrayImplTest {
 
     @org.junit.Test
     public void delete() {
-
     }
 
     @org.junit.Test
     public void getElement() {
-    newSimple.getElement(2);
-
-
     }
 
     @org.junit.Test
@@ -35,5 +33,9 @@ public class SimpleArrayImplTest {
     @org.junit.Test
     public void getSize() {
 
+    }
+
+    @Test
+    public void resize() {
     }
 }
