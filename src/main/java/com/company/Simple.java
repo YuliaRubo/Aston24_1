@@ -7,4 +7,5 @@ public interface Simple <T>{
     void deleteAllElement();
     int getSize();
     void update(int index, T t);
+     String toString();
 }

@@ -14,6 +14,8 @@ public class SimpleArrayImpl<T> implements Simple<T> {
         newArray.add("One");
         newArray.add("Two");
         newArray.add("Three");
+         String y = newArray.toString();
+        System.out.println(y);
         //Удаляем элемент с индексом 1 и остальные смещатся
         newArray.delete(1);
         System.out.println(newArray.getElement(1));
@@ -28,6 +30,7 @@ public class SimpleArrayImpl<T> implements Simple<T> {
 
     }
     private T[] arr;
+    private int index = 0;
 
     public SimpleArrayImpl() {
         arr = (T[]) new Object[0];
@@ -101,6 +104,26 @@ public class SimpleArrayImpl<T> implements Simple<T> {
     @Override
     public int getSize() {
         return arr.length;
+
+        /**
+         *
+         Вывод коллекции с помощью toString
+         */
+    }
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        for (int i = 0; i < arr.length; i++) {
+            sb.append(arr[i]);
+            if (i != arr.length - 1) {
+                sb.append(", ");
+            }
+        }
+        sb.append("]");
+        return sb.toString();
     }
 
-}
+    }
+
+
