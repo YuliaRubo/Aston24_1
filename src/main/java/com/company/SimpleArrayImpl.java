@@ -94,10 +94,11 @@ public class SimpleArrayImpl<T> implements Simple<T> {
      */
     @Override
     public void deleteAllElement() {
-        int size = arr.length;
-        T[] temp = arr;
-        arr = (T[]) new Object[0];
-    }
+            for (int i = index-1; i >=0 ; i--) {
+                delete(i);
+            }
+        }
+
 
     /**
      * Изменение данных по индексу
