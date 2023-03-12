@@ -24,7 +24,11 @@ public class SimpleArrayImplTest {
     @Test
     public void delete() {
         newArray.delete(1);
+        int actual = 2;
+        int expected = newArray.getSize();
+        Assert.assertEquals(expected, actual);
         assertTrue(newArray.getSize()==2);
+
     }
 
     @Test
@@ -46,6 +50,7 @@ public class SimpleArrayImplTest {
         String actual = newArray.getElement(2);
         String expected = "five";
         Assert.assertEquals(expected, actual);
+        assertTrue(newArray.getSize()==3);
     }
 
     @Test
