@@ -29,9 +29,9 @@ public class SimpleArrayImplTest {
         Assert.assertEquals(expected, actual);
         assertTrue(newArray.getSize()==2);
 
-       String actual1 = newArray.getElement(0);
-       String expected1 = "One";
-       Assert.assertEquals(actual1, expected1);
+        String actual1 = newArray.getElement(0);
+        String expected1 = "One";
+        Assert.assertEquals(actual1, expected1);
         String actual2 = newArray.getElement(1);
         String expected2 = "Three";
         Assert.assertEquals(actual2, expected2);
