@@ -35,14 +35,14 @@ public class SimpleArrayImpl<T> implements Simple<T> {
         System.out.println(e);
 
     }
+
     /**
-     *
-     Создаем массив с 10 пустыми ячейками
+     * Создаем массив с 10 пустыми ячейками
      */
     private T[] arr = (T[]) new Object[10];
-    private int index =0;
+    private int index = 0;
 
-    public SimpleArrayImpl(int t){
+    public SimpleArrayImpl(int t) {
         arr = (T[]) new Object[t];
     }
 
@@ -50,49 +50,47 @@ public class SimpleArrayImpl<T> implements Simple<T> {
     }
 
     /**
-     *
-     Добавление элемента в коллецию, изначально в коллекции 10 элементов,
-     если добавляем больше 10 элементов, то размер увеличивется в 2 раза.
+     * Добавление элемента в коллецию, изначально в коллекции 10 элементов,
+     * если добавляем больше 10 элементов, то размер увеличивется в 2 раза.
      */
     @Override
     public void add(T t) {
-        if(index ==arr.length){
-            resize(arr.length*2);
+        if (index == arr.length) {
+            resize(arr.length * 2);
         }
-        arr[index]=t;
-        index+=1;
+        arr[index] = t;
+        index += 1;
     }
 
-    public void resize(int i){
-        T[]newArr = (T[]) new Object[i];
+    public void resize(int i) {
+        T[] newArr = (T[]) new Object[i];
         for (int j = 0; j < i; j++) {
-            newArr[i]=arr[i];
+            newArr[i] = arr[i];
         }
-         arr =newArr;
+        arr = newArr;
     }
 
     /**
-     *
-     Удаление элемента из коллекции
+     * Удаление элемента из коллекции
      */
-     @Override
-     public void delete(int i) {
-         for(int j=i; j<index-1; j++){
-             arr[j]=arr[j+1];
-         }
-         index--;
-     }
+    @Override
+    public void delete(int i) {
+        for (int j = i; j < index - 1; j++) {
+            arr[j] = arr[j + 1];
+        }
+        index--;
+    }
+
     /**
-     *
-    Получение элемента по индексу
+     * Получение элемента по индексу
      */
     @Override
     public T getElement(int i) {
         return arr[i];
     }
+
     /**
-     *
-     Удаление всех элементов коллекции
+     * Удаление всех элементов коллекции
      */
     @Override
     public void deleteAllElement() {
@@ -102,28 +100,28 @@ public class SimpleArrayImpl<T> implements Simple<T> {
     }
 
     /**
-     *
-     Изменение данных по индексу
+     * Изменение данных по индексу
      */
     @Override
     public void update(int index, T t) {
-        arr[index]=t;
+        arr[index] = t;
     }
+
     /**
-     *
-     Размер нашей коллекции
+     * Размер нашей коллекции
      */
     @Override
     public int getSize() {
         return index;
 
-     /**
-     *
-     Вывод коллекции с помощью toString
-     */
+        /**
+         *
+         Вывод коллекции с помощью toString
+         */
     }
+
     @Override
-    public String toString(){
+    public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("[");
         for (int i = 0; i < arr.length; i++) {
@@ -135,23 +133,23 @@ public class SimpleArrayImpl<T> implements Simple<T> {
         sb.append("]");
         return sb.toString();
     }
+
     /**
-     *
-     Добавление элемента по индексу
+     * Добавление элемента по индексу
      */
     @Override
     public void insert(int i, T t) {
-        if(index==arr.length){
-            resize(arr.length*2);
+        if (index == arr.length) {
+            resize(arr.length * 2);
         }
         T prev = arr[i];
-        arr[i]=t;
-        for (int j = i+1; j <= index; j++) {
+        arr[i] = t;
+        for (int j = i + 1; j <= index; j++) {
             T curr = arr[j];
             arr[j] = prev;
             prev = curr;
         }
-        index+=1;
+        index += 1;
     }
 
     /**
