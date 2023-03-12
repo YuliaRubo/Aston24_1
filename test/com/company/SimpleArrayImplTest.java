@@ -29,8 +29,8 @@ public class SimpleArrayImplTest {
 
     @Test
     public void getElement() {
-        String expected = newArray.getElement(1);
-        String actual = "Two";
+        String actual = newArray.getElement(1);
+        String  expected = "Two";
         Assert.assertEquals(expected, actual);
     }
 
@@ -43,8 +43,8 @@ public class SimpleArrayImplTest {
     @Test
     public void update() {
         newArray.update(2, "five");
-        String expected = newArray.getElement(2);
-        String actual = "five";
+        String actual = newArray.getElement(2);
+        String expected = "five";
         Assert.assertEquals(expected, actual);
     }
 
@@ -58,8 +58,8 @@ public class SimpleArrayImplTest {
     @Test
     public void insert() {
         newArray.insert(3, "Four");
-        String expected = newArray.getElement(3);
-        String actual = "Four";
+        String actual = newArray.getElement(3);
+        String expected = "Four";
         Assert.assertEquals(expected, actual);
     }
 }
