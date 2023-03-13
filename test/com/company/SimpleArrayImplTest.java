@@ -2,6 +2,7 @@ package com.company;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -12,7 +13,6 @@ public class SimpleArrayImplTest {
 
 
     @Test
-    @Before
     public void add() {
         newArray.add("One");
         newArray.add("Two");
@@ -23,6 +23,9 @@ public class SimpleArrayImplTest {
 
     @Test
     public void delete() {
+        newArray.add("One");
+        newArray.add("Two");
+        newArray.add("Three");
         newArray.delete(1);
         int actual = 2;
         int expected = newArray.getSize();
@@ -41,6 +44,9 @@ public class SimpleArrayImplTest {
 
     @Test
     public void getElement() {
+        newArray.add("One");
+        newArray.add("Two");
+        newArray.add("Three");
         String actual = newArray.getElement(1);
         String  expected = "Two";
         Assert.assertEquals(expected, actual);
@@ -48,12 +54,18 @@ public class SimpleArrayImplTest {
 
     @Test
     public void deleteAllElement() {
+        newArray.add("One");
+        newArray.add("Two");
+        newArray.add("Three");
         newArray.deleteAllElement();
         assertTrue(newArray.getSize()==0);
     }
 
     @Test
     public void update() {
+        newArray.add("One");
+        newArray.add("Two");
+        newArray.add("Three");
         newArray.update(2, "five");
         String actual = newArray.getElement(2);
         String expected = "five";
@@ -63,6 +75,9 @@ public class SimpleArrayImplTest {
 
     @Test
     public void getSize() {
+        newArray.add("One");
+        newArray.add("Two");
+        newArray.add("Three");
         int expected = newArray.getSize();
         int actual = 3;
         Assert.assertEquals(expected, actual);
@@ -70,6 +85,9 @@ public class SimpleArrayImplTest {
 
     @Test
     public void insert() {
+        newArray.add("One");
+        newArray.add("Two");
+        newArray.add("Three");
         newArray.insert(3, "Four");
         String actual = newArray.getElement(3);
         String expected = "Four";
