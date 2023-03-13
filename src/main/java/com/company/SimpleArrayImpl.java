@@ -4,37 +4,6 @@ import java.util.Arrays;
 
 public class SimpleArrayImpl<T> implements Simple<T> {
 
-    public static void main(String[] args) {
-        /**
-         *
-         Пока не реализованно тестирвоание, проверку провожу таким образом
-         */
-        //Создание колелкции строк и добавление туда элементов
-        Simple<String> newArray = new SimpleArrayImpl<>();
-        newArray.add("One");
-        newArray.add("Two");
-        newArray.add("Three");
-        //получение элемента из коллекции по индексу.
-        String s = newArray.getElement(1);
-        System.out.println(s);
-        //добавление элемента в коллекцию по индексу.
-        newArray.insert(2, "Cool");
-        //Вывод коллекции после добавления элементов
-        String y = newArray.toString();
-        System.out.println(y);
-        //Удаляем элемент с индексом 1 и остальные смещатся
-        newArray.delete(1);
-        System.out.println(newArray.getElement(1));
-        //Получаем размер коллекции
-        int r = newArray.getSize();
-        System.out.println(r);
-        //Удаляем все элементы из коллекции
-        newArray.deleteAllElement();
-        //Получаем размер после удаления всех элементов.
-        int e = newArray.getSize();
-        System.out.println(e);
-
-    }
 
     /**
      * Создаем массив с 10 пустыми ячейками
@@ -56,16 +25,16 @@ public class SimpleArrayImpl<T> implements Simple<T> {
     @Override
     public void add(T t) {
         if (index == arr.length) {
-            resize(arr.length * 2);
+            resize();
         }
         arr[index] = t;
         index += 1;
     }
 
-    public void resize(int i) {
-        T[] newArr = (T[]) new Object[i];
-        for (int j = 0; j < i; j++) {
-            newArr[i] = arr[i];
+    public void resize() {
+        T[] newArr = (T[]) new Object[arr.length*2];
+        for (int j = 0; j < arr.length; j++) {
+            newArr[j] = arr[j];
         }
         arr = newArr;
     }
@@ -141,7 +110,7 @@ public class SimpleArrayImpl<T> implements Simple<T> {
     @Override
     public void insert(int i, T t) {
         if (index == arr.length) {
-            resize(arr.length * 2);
+            resize();
         }
         T prev = arr[i];
         arr[i] = t;

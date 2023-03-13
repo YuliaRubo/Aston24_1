@@ -7,10 +7,10 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class SimpleArrayImplTest {
+public class SimpleArrayImplTest<i> {
 
-    Simple<String> newArray = new SimpleArrayImpl<>();
-
+    Simple<Object> newArray = new SimpleArrayImpl<>();
+    //Simple<Object> newObject = new SimpleArrayImpl<>();
 
     @Test
     public void add() {
@@ -32,10 +32,10 @@ public class SimpleArrayImplTest {
         Assert.assertEquals(expected, actual);
         assertTrue(newArray.getSize()==2);
 
-        String actual1 = newArray.getElement(0);
+        Object actual1 = newArray.getElement(0);
         String expected1 = "One";
         Assert.assertEquals(actual1, expected1);
-        String actual2 = newArray.getElement(1);
+        Object actual2 = newArray.getElement(1);
         String expected2 = "Three";
         Assert.assertEquals(actual2, expected2);
 
@@ -47,7 +47,7 @@ public class SimpleArrayImplTest {
         newArray.add("One");
         newArray.add("Two");
         newArray.add("Three");
-        String actual = newArray.getElement(1);
+        Object actual = newArray.getElement(1);
         String  expected = "Two";
         Assert.assertEquals(expected, actual);
     }
@@ -67,7 +67,7 @@ public class SimpleArrayImplTest {
         newArray.add("Two");
         newArray.add("Three");
         newArray.update(2, "five");
-        String actual = newArray.getElement(2);
+        Object actual = newArray.getElement(2);
         String expected = "five";
         Assert.assertEquals(expected, actual);
         assertTrue(newArray.getSize()==3);
@@ -88,9 +88,18 @@ public class SimpleArrayImplTest {
         newArray.add("One");
         newArray.add("Two");
         newArray.add("Three");
-        newArray.insert(3, "Four");
-        String actual = newArray.getElement(3);
+        /**
+        * Добавляю эелементов, чтоб их в коллекции было 1000,
+         * потоп делаю проверку на размер массива.
+         */
+        for (int i = 3; i < 1000; i++) {
+            newArray.insert(i, "Four");
+        }
+        Object actual = newArray.getElement(3);
         String expected = "Four";
         Assert.assertEquals(expected, actual);
+        int expected1 = newArray.getSize();
+        int actual1 = 1000;
+        Assert.assertEquals(expected1,actual1);
     }
 }
